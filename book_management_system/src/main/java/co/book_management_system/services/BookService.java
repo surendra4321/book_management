@@ -24,4 +24,10 @@ public class BookService {
 
 	}
 
+	public Book getBookById(int id) {
+		Book book = null;
+		book = list.stream().filter(e -> e.getId() == id).findFirst().get();
+		return book;
+	}
+
 }

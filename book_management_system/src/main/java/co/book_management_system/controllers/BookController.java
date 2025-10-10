@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import co.book_management_system.entites.Book;
@@ -22,5 +23,10 @@ public class BookController {
     	  List<Book> book= bookService.getAllBooks();
 		return book;
 	}
+    @GetMapping("/books/{id}")
+    public Book getBook(@PathVariable("id") int id) {
+    	  Book b= bookService.getBookById(id);
+    	return b;
+    }
 
 }
